@@ -1,3 +1,6 @@
+# Static Website Module
+This module configures an S3 bucket as a static website using features like CORS and ACLs to expose it to a public URL over the Internet.
+
 ## Requirements
 
 | Name | Version |
