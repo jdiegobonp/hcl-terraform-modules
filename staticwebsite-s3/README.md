@@ -14,9 +14,20 @@ This module configures an S3 bucket as a static website using features like CORS
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.0 |
 
-## Modules
+## Implementation
 
-No modules.
+```sh
+# Main module where the module will define
+module "static_website" {
+  source = "./staticwebsite-s3"
+  bucket_name = "<Name of the S3 bucket>"
+}
+
+# Define an output
+output "endpoint" {
+  value = module.static_website.website_endpoint
+}
+```
 
 ## Resources
 

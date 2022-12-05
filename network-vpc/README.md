@@ -15,9 +15,23 @@ This module is able to provide infrastructure to Virtual Private Network.
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.0 |
 
-## Modules
+## Implementation
 
-No modules.
+```sh
+# Declare VPC module
+module "vpc" {
+  source  = "./network-vpc"
+  project = "poc"
+  az      = ["us-east-1a", "us-east-1b"]
+  cidr    = "10.2.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support = true
+  environment = "sandbox"
+  private_subnets = ["10.2.1.0/24", "10.2.2.0/24"]
+  public_subnets = ["10.2.11.0/24", "10.2.12.0/24"]
+  tags    = { Environment: "Sandbox-1" }
+}
+```
 
 ## Resources
 
